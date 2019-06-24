@@ -1,50 +1,39 @@
-﻿@model CourseManager.Models.LoginModel
+﻿@model CourseManager.Models.Users
 
 @{
-    ViewBag.Title = "登录";
+    Layout = null;
 }
-
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-</hgroup>
-
-<section id="loginForm">
-<h2>使用本地帐户登录。</h2>
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>“登录”表单</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-            </li>
-            <li>
-                @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-            </li>
-        </ol>
-        <input type="submit" value="登录" />
-    </fieldset>
-    <p>
-        @Html.ActionLink("Register", "Register") (如果你没有帐户)。
-    </p>
-}
-</section>
+     <div class="from-horizontal">
+         <h4>登录</h4>
+         <hr/>
+         @Html.ValidationSummary(true, "", new { @class="text-danger"})
+         <div class="col-from-group">
+             @Html.LabelFor(Model => Model.Account, new { AllowHtmlAttribute = new { @class="control-label col-md-2"} })
+             <div class="col-md-10">
+                 @Html.EditorFor(Model => Model.Account, new { AllowHtmlAttribute = new { @class="from-control"} })
+                 @Html.ValidationMessageFor(Model => Model.Account,"", new { @class="text-danger"})
+             </div>
+         </div>
 
-<section class="social" id="socialLoginForm">
-    <h2>使用其他服务登录。</h2>
-    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-</section>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+
+         <div class="form-group">
+              @Html.LabelFor(Model=>Model.Password, htmlAttributes: new {@class="control-label col-md-2"})
+             <div class="col-md-10">
+                 @Html.EditorFor(Model=>Model.Password,new{htmlAttributes=new{@class="from-control"}})
+                 @Html.ValidationMessageFor(Model=>Model.Password,"",new{@class="text-danger"})
+             </div>
+         </div>
+
+
+         <div class="form-group">
+             <div class="col-md-offset-2 col-md-10">
+                 <input type="submit" value="Create" class="btn btn-default" />
+             </div>
+         </div>
+     </div> 
 }
