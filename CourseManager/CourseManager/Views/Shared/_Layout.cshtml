@@ -22,15 +22,12 @@
         </style>
     </head>
     <body>
-      
-            @Html.Action("Navbar", "Home")
-        
         <div class="container body-content">
-            <div class="col-md-3 float-left">
-               
+            @Html.Action("Navbar", "Home")
+            <div class="col-md-3 float-right">
                 @Html.Action("SideBar", "Home")
             </div>
-            <div class="col-md-9 float-right">
+            <div class="col-md-9 float-left">
                 @RenderSection("featured", required: false)
                 @RenderBody()
             </div>
