@@ -11,29 +11,31 @@
 
         <style>
             .sidebar{
+                padding-top:30px;
                 display: flex;
                 flex-direction:column;
                 justify-content:center;
             }
+        .sidebar li a {
+            color:#333;
+        }
         </style>
     </head>
     <body>
-        @Html.Action("Navbar","Home")
-       
-         <div class="container body-content">
-             <div class="col-md-3">
-                 <ul class="mav mavbar-nav sidebar">
-                     <li>@Html.ActionLink("link.Name","link/Action","link.Controller")</li>
-                     <li>@Html.ActionLink("link.Name","link/Action","link.Controller")</li>
-                 </ul>
-             </div>
-            
-
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
+        <header>
+            @Html.Action("Navbar", "Home")
+        </header>
+        <div class="container body-content">
+            <div class="col-md-3 float-left">
+                @Html.Action("SideBar", "Home")
+            </div>
+            <div class="col-md-9 float-right">
+                @RenderSection("featured", required: false)
                 @RenderBody()
-            </section>
+            </div>
+
         </div>
+        
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
@@ -43,7 +45,6 @@
         </footer>
 
         @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
     </body>
 </html>

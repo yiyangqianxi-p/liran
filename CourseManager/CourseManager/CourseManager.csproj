@@ -170,6 +170,7 @@
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\CourseManagementController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SideBarController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Global.asax.cs">
@@ -362,6 +363,12 @@
     <Content Include="Views\Course\Delete.cshtml" />
     <Content Include="Views\Class\ShowCourseManagement.cshtml" />
     <Content Include="Views\Shared\Navbar.cshtml" />
+    <Content Include="Views\SideBar\Index.cshtml" />
+    <Content Include="Views\SideBar\Details.cshtml" />
+    <Content Include="Views\SideBar\Create.cshtml" />
+    <Content Include="Views\SideBar\Edit.cshtml" />
+    <Content Include="Views\SideBar\Delete.cshtml" />
+    <Content Include="Views\Shared\SideBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
