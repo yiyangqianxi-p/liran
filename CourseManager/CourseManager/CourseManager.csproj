@@ -176,6 +176,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907050915429_Update201912251655.cs" />
+    <Compile Include="Migrations\201907050915429_Update201912251655.Designer.cs">
+      <DependentUpon>201907050915429_Update201912251655.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201912110138559_create.cs" />
     <Compile Include="Migrations\201912110138559_create.Designer.cs">
       <DependentUpon>201912110138559_create.cs</DependentUpon>
@@ -206,6 +210,7 @@
     <Compile Include="Models\Teachers.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Models\WebstieInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -381,6 +386,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201907050915429_Update201912251655.resx">
+      <DependentUpon>201907050915429_Update201912251655.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912110138559_create.resx">
       <DependentUpon>201912110138559_create.cs</DependentUpon>
     </EmbeddedResource>
