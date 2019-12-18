@@ -8,10 +8,25 @@
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
+
+        <style>
+            .sidebar{
+                display: flex;
+                flex-direction:column;
+                justify-content:center;
+            }
+        </style>
     </head>
     <body>
         @Html.Action("Navbar","Home")
-        <div id="body">
+       
+         <div class="container body-content">
+             <div class="col-md-3">
+                 <ul class="mav mavbar-nav sidebar">
+                     <li>@Html.ActionLink("link.Name","link/Action","link.Controller")</li>
+                     <li>@Html.ActionLink("link.Name","link/Action","link.Controller")</li>
+                 </ul>
+             </div>
             
 
             @RenderSection("featured", required: false)
