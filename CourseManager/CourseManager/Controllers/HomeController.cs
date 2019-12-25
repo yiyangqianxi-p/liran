@@ -9,10 +9,9 @@ namespace CourseManager.Controllers
 {
     public class HomeController : Controller
     {
+        private CourseManagerEntities db = new CourseManagerEntities();
         public ActionResult Index()
         {
-            ViewBag.Message = "修改此模板以快速启动你的 ASP.NET MVC 应用程序。";
-
             return View();
         }
 
@@ -37,5 +36,14 @@ namespace CourseManager.Controllers
             ViewBag.Site = site;
             return PartialView("/Views/Shared/Navbar.cshtml");
         }
+
+        [ChildActionOnly]
+        public ActionResult SideBar()
+        {
+            var sidebars = db.SideBars.ToList();
+            ViewBag.SideBars = sidebars;
+            return PartialView("/Views/Shared/SideBar.cshtml");
+        }
+
     }
 }

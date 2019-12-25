@@ -1,24 +1,26 @@
 ﻿@using CourseManager.Models
-
+@model IEnumerable<CourseManager.Models.ActionLinks>
 @{
     var site = (WebstieInfo)ViewBag.Site;
     }
- <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("WebstieInfo.SoteName", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            @foreach (var link in site.ActionLinks)
-                            {
-                                <li>@Html.ActionLink(link.Name, link.Action,link.Controller)</li> 
-                            }
-                            
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+<style>
+    .title a{
+        line-height:82px; 
+        height:82px;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="col-md-9 float-right">
+        <section id="login">
+            @Html.Partial("_LoginPartial")
+        </section>
+        <div class="navbar-collapse collapse">
+            <ul id="menu" class="nav navbar-nav">
+                @foreach (var item in site.ActionLinks)
+                {
+                    <li>@Html.ActionLink(item.Name.Trim(),item.Action.Trim(),item.Controller.Trim())</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

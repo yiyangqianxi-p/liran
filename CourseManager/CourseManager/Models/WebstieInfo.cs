@@ -17,9 +17,11 @@ namespace CourseManager.Models
         public const string SiteName = "课程管理系统";
 
         public List<ActionLink> ActionLinks { get; set; }
+        public string sitename { get; set; }
 
         public WebstieInfo()
         {
+            sitename = SiteName;
             ActionLinks = new List<ActionLink>
             {
                 new ActionLink{Name="主页",Controller="Home",Action="Index"},
